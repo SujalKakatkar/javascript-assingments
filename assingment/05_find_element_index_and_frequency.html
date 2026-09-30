@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <br><br>
+        <label for="element">Enter the Element to Find</label>
+        <input type="text" name="element">
+        <button type="button" onclick="findElement()">find</button>
+    </form>
+    <script>
+
+
+        function findElement() {
+            let arr = document.form.arr.value.split(",");
+            let element = document.form.element.value;
+            let count = 0;
+            let indexes = "";
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].trim() == element.trim()) {
+                    count++;
+                    indexes += i + " ";
+                }
+            }
+            console.log(count, indexes);
+            if (count == 0) {
+                alert(element + " is not found in the array")
+            } else {
+                alert("Element " + element + " found\nIndex = " + indexes + "\nFrequency = " + count)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

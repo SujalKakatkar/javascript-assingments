@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <button type="button" onclick="toggleCase()">convert</button>
+    </form>
+    <script>
+
+
+        function toggleCase() {
+            let str = document.form.str.value;
+            let result = "";
+            for (let i = 0; i < str.length; i++) {
+                let code = str.charCodeAt(i)
+                if (code >= 97 && code <= 122) {
+                    result += String.fromCharCode(code - 32)
+                } else if (code >= 65 && code <= 90) {
+                    result += String.fromCharCode(code + 32)
+                } else {
+                    result += str[i]
+                }
+            }
+            console.log(result);
+            alert(result)
+        }
+
+    </script>
+</body>
+
+</html>

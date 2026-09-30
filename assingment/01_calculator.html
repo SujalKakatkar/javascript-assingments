@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="num1">Enter the First Number</label>
+        <input type="text" name="num1">
+        <br><br>
+        <label for="num2">Enter the Second Number</label>
+        <input type="text" name="num2">
+        <br><br>
+        <button type="button" onclick="calculate('+')">add</button>
+        <button type="button" onclick="calculate('-')">subtract</button>
+        <button type="button" onclick="calculate('*')">multiply</button>
+        <button type="button" onclick="calculate('/')">divide</button>
+    </form>
+    <script>
+
+
+        function calculate(op) {
+            let a = parseFloat(document.form.num1.value);
+            let b = parseFloat(document.form.num2.value);
+            let result;
+            if (op == "+") {
+                result = a + b;
+            } else if (op == "-") {
+                result = a - b;
+            } else if (op == "*") {
+                result = a * b;
+            } else {
+                if (b == 0) {
+                    alert("Cannot divide by zero")
+                    return;
+                }
+                result = a / b;
+            }
+            console.log(result);
+            alert("Result = " + result)
+        }
+
+    </script>
+</body>
+
+</html>

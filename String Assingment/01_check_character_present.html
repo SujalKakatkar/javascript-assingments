@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <br><br>
+        <label for="ch">Enter the Character</label>
+        <input type="text" name="ch">
+        <button type="button" onclick="checkCharacter()">check</button>
+    </form>
+    <script>
+
+        function checkCharacter() {
+            let str = document.form.str.value;
+            let ch = document.form.ch.value;
+            let found = false;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == ch) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                alert(ch + " is present in the string")
+            } else {
+                alert(ch + " is not present in the string")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

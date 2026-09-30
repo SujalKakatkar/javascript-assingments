@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str1">Enter the First String</label>
+        <input type="text" name="str1">
+        <br><br>
+        <label for="str2">Enter the Second String</label>
+        <input type="text" name="str2">
+        <button type="button" onclick="compareStrings()">compare</button>
+    </form>
+    <script>
+
+
+        function compareStrings() {
+            let str1 = document.form.str1.value;
+            let str2 = document.form.str2.value;
+            if (str1 == str2) {
+                alert("Strings are equal")
+            } else {
+                alert("Strings are not equal")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

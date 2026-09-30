@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="findMax()">find max</button>
+    </form>
+    <script>
+
+        function findMax() {
+            let arr = document.form.arr.value.split(",").map(x => parseInt(x));
+            let max = arr.reduce((big, x) => {
+                if (x > big) {
+                    return x;
+                } else {
+                    return big;
+                }
+            }, arr[0]);
+            console.log(max);
+            alert("Maximum number = " + max)
+        }
+
+    </script>
+</body>
+
+</html>

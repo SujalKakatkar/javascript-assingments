@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str1">Enter the First String</label>
+        <input type="text" name="str1">
+        <br><br>
+        <label for="str2">Enter the Second String</label>
+        <input type="text" name="str2">
+        <button type="button" onclick="checkAnagram()">check</button>
+    </form>
+    <script>
+
+
+        function checkAnagram() {
+            let str1 = document.form.str1.value.toLowerCase();
+            let str2 = document.form.str2.value.toLowerCase();
+            if (str1.length != str2.length) {
+                alert("Strings are not anagram")
+                return;
+            }
+            let a = str1.split("").sort();
+            let b = str2.split("").sort();
+            console.log(a, b);
+            let same = true;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] != b[i]) {
+                    same = false;
+                    break;
+                }
+            }
+            if (same) {
+                alert("Strings are anagram")
+            } else {
+                alert("Strings are not anagram")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

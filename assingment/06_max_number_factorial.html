@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="maxFactorial()">find</button>
+    </form>
+    <script>
+
+
+        function maxFactorial() {
+            let arr = document.form.arr.value.split(",");
+            let max = parseInt(arr[0]);
+            for (let i = 1; i < arr.length; i++) {
+                if (parseInt(arr[i]) > max) {
+                    max = parseInt(arr[i]);
+                }
+            }
+            console.log(max);
+            if (max < 0) {
+                alert("Maximum number is " + max + ", factorial is not possible")
+                return;
+            }
+            let fact = 1;
+            for (let i = 1; i <= max; i++) {
+                fact = fact * i;
+            }
+            alert("Maximum number = " + max + "\nFactorial = " + fact)
+        }
+
+    </script>
+</body>
+
+</html>

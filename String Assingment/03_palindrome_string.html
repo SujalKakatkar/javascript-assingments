@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <button type="button" onclick="checkPalindrome()">check</button>
+    </form>
+    <script>
+
+        function checkPalindrome() {
+            let str = document.form.str.value;
+            let rev = "";
+            for (let i = str.length - 1; i >= 0; i--) {
+                rev += str[i];
+            }
+            console.log(rev);
+            if (str == rev) {
+                alert(str + " is a palindrome")
+            } else {
+                alert(str + " is not a palindrome")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="len">Enter the Length</label>
+        <input type="text" name="len">
+        <button type="button" onclick="generateString()">generate</button>
+    </form>
+    <script>
+
+
+        function generateString() {
+            let len = parseInt(document.form.len.value);
+            let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            let result = "";
+            for (let i = 0; i < len; i++) {
+                let index = Math.floor(Math.random() * chars.length);
+                result += chars[index];
+            }
+            console.log(result);
+            alert(result)
+        }
+
+    </script>
+</body>
+
+</html>

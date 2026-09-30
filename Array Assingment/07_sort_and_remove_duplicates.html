@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="removeDuplicates()">remove duplicates</button>
+    </form>
+    <script>
+
+
+        function removeDuplicates() {
+            let arr = document.form.arr.value.split(",");
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = parseInt(arr[i]);
+            }
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            console.log(arr);
+            let result = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (i == 0 || arr[i] != arr[i - 1]) {
+                    result.push(arr[i]);
+                }
+            }
+            console.log(result);
+            alert("Sorted array without duplicates: " + result)
+        }
+
+    </script>
+</body>
+
+</html>

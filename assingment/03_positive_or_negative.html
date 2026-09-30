@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="num">Enter the Number</label>
+        <input type="text" name="num">
+        <button type="button" onclick="checkNumber()">check</button>
+    </form>
+    <script>
+
+
+        function checkNumber() {
+            let num = parseFloat(document.form.num.value);
+            console.log(num);
+            if (num > 0) {
+                alert(num + " is a positive number")
+            } else if (num < 0) {
+                alert(num + " is a negative number")
+            } else {
+                alert("Number is zero")
+            }
+        }
+
+    </script>
+</body>
+
+</html>

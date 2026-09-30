@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="findMin()">find min</button>
+    </form>
+    <script>
+
+        function findMin() {
+            let arr = document.form.arr.value.split(",").map(x => parseInt(x));
+            let min = arr.reduce((small, x) => {
+                if (x < small) {
+                    return x;
+                } else {
+                    return small;
+                }
+            }, arr[0]);
+            console.log(min);
+            alert("Minimum number = " + min)
+        }
+
+    </script>
+</body>
+
+</html>

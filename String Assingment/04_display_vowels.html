@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <button type="button" onclick="showVowels()">show vowels</button>
+    </form>
+    <script>
+
+
+        function showVowels() {
+            let str = document.form.str.value;
+            let vowels = "";
+            for (let i = 0; i < str.length; i++) {
+                let ch = str[i].toLowerCase();
+                if (ch == "a" || ch == "e" || ch == "i" || ch == "o" || ch == "u") {
+                    vowels += str[i] + " ";
+                }
+            }
+            console.log(vowels);
+            if (vowels == "") {
+                alert("No vowels found")
+            } else {
+                alert("Vowels: " + vowels)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

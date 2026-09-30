@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str1">Enter the First String</label>
+        <input type="text" name="str1">
+        <br><br>
+        <label for="str2">Enter the Second String</label>
+        <input type="text" name="str2">
+        <button type="button" onclick="copyStrings()">copy</button>
+    </form>
+    <script>
+
+
+        function copyStrings() {
+            let str1 = document.form.str1.value;
+            let str2 = document.form.str2.value;
+            let newStr = "";
+            for (let i = 0; i < str1.length; i++) {
+                newStr += str1[i];
+            }
+            for (let i = 0; i < str2.length; i++) {
+                newStr += str2[i];
+            }
+            console.log(newStr);
+            alert(newStr)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <br><br>
+        <label for="oldWord">Enter the Word to Replace</label>
+        <input type="text" name="oldWord">
+        <br><br>
+        <label for="newWord">Enter the Word to Replace With</label>
+        <input type="text" name="newWord">
+        <button type="button" onclick="replaceWord()">replace</button>
+    </form>
+    <script>
+
+
+        function replaceWord() {
+            let str = document.form.str.value;
+            let oldWord = document.form.oldWord.value;
+            let newWord = document.form.newWord.value;
+            let words = str.split(" ");
+            let result = "";
+            for (let i = 0; i < words.length; i++) {
+                if (words[i] == oldWord) {
+                    result += newWord;
+                } else {
+                    result += words[i];
+                }
+                if (i < words.length - 1) {
+                    result += " ";
+                }
+            }
+            console.log(result);
+            alert(result)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="swapNumbers()">swap</button>
+    </form>
+    <script>
+
+
+        function swapNumbers() {
+            let arr = document.form.arr.value.split(",");
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = parseInt(arr[i]);
+            }
+            let start = 0;
+            let end = arr.length - 1;
+            while (start < end) {
+                let temp = arr[start];
+                arr[start] = arr[end];
+                arr[end] = temp;
+                start++;
+                end--;
+            }
+            console.log(arr);
+            alert("Array after swapping: " + arr)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr1">Enter the First Sorted Array (separated by comma)</label>
+        <input type="text" name="arr1">
+        <br><br>
+        <label for="arr2">Enter the Second Sorted Array (separated by comma)</label>
+        <input type="text" name="arr2">
+        <button type="button" onclick="findUnionIntersection()">find</button>
+    </form>
+    <script>
+
+
+        function addUnique(list, x) {
+            if (list.length == 0 || list[list.length - 1] != x) {
+                list.push(x);
+            }
+        }
+
+        function findUnionIntersection() {
+            let a = document.form.arr1.value.split(",");
+            let b = document.form.arr2.value.split(",");
+            for (let i = 0; i < a.length; i++) {
+                a[i] = parseInt(a[i]);
+            }
+            for (let i = 0; i < b.length; i++) {
+                b[i] = parseInt(b[i]);
+            }
+            let union = [];
+            let inter = [];
+            let i = 0;
+            let j = 0;
+            while (i < a.length && j < b.length) {
+                if (a[i] < b[j]) {
+                    addUnique(union, a[i]);
+                    i++;
+                } else if (a[i] > b[j]) {
+                    addUnique(union, b[j]);
+                    j++;
+                } else {
+                    addUnique(union, a[i]);
+                    addUnique(inter, a[i]);
+                    i++;
+                    j++;
+                }
+            }
+            while (i < a.length) {
+                addUnique(union, a[i]);
+                i++;
+            }
+            while (j < b.length) {
+                addUnique(union, b[j]);
+                j++;
+            }
+            console.log(union, inter);
+            if (inter.length == 0) {
+                alert("Union: " + union + "\nIntersection: no common elements")
+            } else {
+                alert("Union: " + union + "\nIntersection: " + inter)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

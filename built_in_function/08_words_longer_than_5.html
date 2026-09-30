@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Strings (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="longWords()">find</button>
+    </form>
+    <script>
+
+        function longWords() {
+            let arr = document.form.arr.value.split(",").map(s => s.trim());
+            let result = arr.filter(s => s.length > 5);
+            console.log(result);
+            if (result.length == 0) {
+                alert("No words longer than 5 characters found")
+            } else {
+                alert(result)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

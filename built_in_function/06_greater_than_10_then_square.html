@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="greaterThanTen()">find</button>
+    </form>
+    <script>
+
+        function greaterThanTen() {
+            let arr = document.form.arr.value.split(",").map(x => parseInt(x));
+            let result = arr.filter(x => x > 10).map(x => x * x);
+            console.log(result);
+            if (result.length == 0) {
+                alert("No numbers greater than 10 found")
+            } else {
+                alert(result)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

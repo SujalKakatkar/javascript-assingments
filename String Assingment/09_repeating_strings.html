@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="s1">Enter String 1</label>
+        <input type="text" name="s1">
+        <br><br>
+        <label for="s2">Enter String 2</label>
+        <input type="text" name="s2">
+        <br><br>
+        <label for="s3">Enter String 3</label>
+        <input type="text" name="s3">
+        <br><br>
+        <label for="s4">Enter String 4</label>
+        <input type="text" name="s4">
+        <br><br>
+        <label for="s5">Enter String 5</label>
+        <input type="text" name="s5">
+        <br><br>
+        <label for="s6">Enter String 6</label>
+        <input type="text" name="s6">
+        <br><br>
+        <label for="s7">Enter String 7</label>
+        <input type="text" name="s7">
+        <br><br>
+        <label for="s8">Enter String 8</label>
+        <input type="text" name="s8">
+        <br><br>
+        <label for="s9">Enter String 9</label>
+        <input type="text" name="s9">
+        <br><br>
+        <label for="s10">Enter String 10</label>
+        <input type="text" name="s10">
+        <button type="button" onclick="findRepeating()">check</button>
+    </form>
+    <script>
+
+
+        function findRepeating() {
+            let arr = [
+                document.form.s1.value,
+                document.form.s2.value,
+                document.form.s3.value,
+                document.form.s4.value,
+                document.form.s5.value,
+                document.form.s6.value,
+                document.form.s7.value,
+                document.form.s8.value,
+                document.form.s9.value,
+                document.form.s10.value
+            ];
+            let done = [];
+            let result = "";
+            for (let i = 0; i < arr.length; i++) {
+                let already = false;
+                for (let k = 0; k < done.length; k++) {
+                    if (done[k] == arr[i]) {
+                        already = true;
+                    }
+                }
+                if (already) {
+                    continue;
+                }
+                let count = 0;
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[i] == arr[j]) {
+                        count++;
+                    }
+                }
+                if (count > 1) {
+                    result += arr[i] + " = " + count + " times\n";
+                }
+                done.push(arr[i]);
+            }
+            console.log(result);
+            if (result == "") {
+                alert("No repeating strings")
+            } else {
+                alert(result)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

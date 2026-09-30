@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="findSecond()">find</button>
+    </form>
+    <script>
+
+
+        function findSecond() {
+            let arr = document.form.arr.value.split(",");
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = parseInt(arr[i]);
+            }
+            console.log(arr);
+            let max1 = -Infinity;
+            let max2 = -Infinity;
+            let min1 = Infinity;
+            let min2 = Infinity;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > max1) {
+                    max2 = max1;
+                    max1 = arr[i];
+                } else if (arr[i] > max2 && arr[i] != max1) {
+                    max2 = arr[i];
+                }
+                if (arr[i] < min1) {
+                    min2 = min1;
+                    min1 = arr[i];
+                } else if (arr[i] < min2 && arr[i] != min1) {
+                    min2 = arr[i];
+                }
+            }
+            if (max2 == -Infinity || min2 == Infinity) {
+                alert("Second minimum and second maximum not found")
+            } else {
+                alert("Second Minimum = " + min2 + "\nSecond Maximum = " + max2)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

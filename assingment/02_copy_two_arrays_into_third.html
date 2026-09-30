@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr1">Enter the First Array (separated by comma)</label>
+        <input type="text" name="arr1">
+        <br><br>
+        <label for="arr2">Enter the Second Array (separated by comma)</label>
+        <input type="text" name="arr2">
+        <button type="button" onclick="copyArrays()">copy</button>
+    </form>
+    <script>
+
+
+        function copyArrays() {
+            let arr1 = document.form.arr1.value.split(",");
+            let arr2 = document.form.arr2.value.split(",");
+            let arr3 = [];
+            for (let i = 0; i < arr1.length; i++) {
+                arr3.push(arr1[i]);
+            }
+            for (let i = 0; i < arr2.length; i++) {
+                arr3.push(arr2[i]);
+            }
+            console.log(arr3);
+            alert("Third array: " + arr3)
+        }
+
+    </script>
+</body>
+
+</html>

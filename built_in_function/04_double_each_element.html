@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="arr">Enter the Array Elements (separated by comma)</label>
+        <input type="text" name="arr">
+        <button type="button" onclick="doubleElements()">double</button>
+    </form>
+    <script>
+
+        function doubleElements() {
+            let arr = document.form.arr.value.split(",").map(x => parseInt(x));
+            let result = arr.map(x => x * 2);
+            console.log(result);
+            alert("Doubled array: " + result)
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <button type="button" onclick="countAll()">count</button>
+    </form>
+    <script>
+
+
+        function countAll() {
+            let str = document.form.str.value;
+            let chars = str.length;
+            let words = 0;
+            let newlines = 0;
+            let inWord = false;
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] == ".") {
+                    newlines++;
+                }
+                if (str[i] == " " || str[i] == ".") {
+                    inWord = false;
+                } else {
+                    if (inWord == false) {
+                        words++;
+                        inWord = true;
+                    }
+                }
+            }
+            console.log(chars, words, newlines);
+            alert("Characters = " + chars + "\nWords = " + words + "\nNewlines = " + newlines)
+        }
+
+    </script>
+</body>
+
+</html>

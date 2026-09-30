@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="num">Enter the Number</label>
+        <input type="text" name="num">
+        <button type="button" onclick="findFactors()">find factors</button>
+    </form>
+    <script>
+
+
+        function findFactors() {
+            let num = parseInt(document.form.num.value);
+            let result = "";
+            for (let i = 1; i <= num; i++) {
+                if (num % i == 0) {
+                    result += i + " ";
+                }
+            }
+            console.log(result);
+            alert("Factors of " + num + ": " + result)
+        }
+
+    </script>
+</body>
+
+</html>

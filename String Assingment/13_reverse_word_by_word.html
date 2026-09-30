@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="str">Enter the String</label>
+        <input type="text" name="str">
+        <button type="button" onclick="reverseWords()">reverse</button>
+    </form>
+    <script>
+
+        function reverseWords() {
+            let str = document.form.str.value;
+            let words = str.split(" ");
+            let result = "";
+            for (let i = 0; i < words.length; i++) {
+                let rev = "";
+                for (let j = words[i].length - 1; j >= 0; j--) {
+                    rev += words[i][j];
+                }
+                result += rev;
+                if (i < words.length - 1) {
+                    result += " ";
+                }
+            }
+            console.log(result);
+            alert(result)
+        }
+
+    </script>
+</body>
+
+</html>

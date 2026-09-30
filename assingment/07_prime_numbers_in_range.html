@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="start">Enter the Start Number</label>
+        <input type="text" name="start">
+        <br><br>
+        <label for="end">Enter the End Number</label>
+        <input type="text" name="end">
+        <button type="button" onclick="findPrimes()">find primes</button>
+    </form>
+    <script>
+
+
+        function findPrimes() {
+            let start = parseInt(document.form.start.value);
+            let end = parseInt(document.form.end.value);
+            let result = "";
+            for (let n = start; n <= end; n++) {
+                if (n < 2) {
+                    continue;
+                }
+                let isPrime = true;
+                for (let i = 2; i * i <= n; i++) {
+                    if (n % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) {
+                    result += n + " ";
+                }
+            }
+            console.log(result);
+            if (result == "") {
+                alert("No prime numbers found in the range")
+            } else {
+                alert("Prime numbers: " + result)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
