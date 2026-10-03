@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="make">Enter the Make</label>
+        <input type="text" name="make">
+        <br><br>
+        <label for="model">Enter the Model</label>
+        <input type="text" name="model">
+        <br><br>
+        <button type="button" onclick="testCar()">test car</button>
+        <button type="button" onclick="testBike()">test bike</button>
+        <button type="button" onclick="testTruck()">test truck</button>
+    </form>
+    <script>
+
+        class Vehicle {
+            constructor(make, model) {
+                this.make = make;
+                this.model = model;
+            }
+            startEngine() {
+                return this.make + " " + this.model + " engine started";
+            }
+        }
+
+        class Car extends Vehicle {
+            openTrunk() {
+                return this.make + " " + this.model + " trunk opened";
+            }
+        }
+
+        class Bike extends Vehicle {
+            kickStart() {
+                return this.make + " " + this.model + " kick started";
+            }
+        }
+
+        class Truck extends Vehicle {
+            loadCargo() {
+                return this.make + " " + this.model + " cargo loaded";
+            }
+        }
+
+        function testCar() {
+            let car = new Car(document.form.make.value, document.form.model.value);
+            console.log(car);
+            alert(car.startEngine() + "\n" + car.openTrunk())
+        }
+
+        function testBike() {
+            let bike = new Bike(document.form.make.value, document.form.model.value);
+            console.log(bike);
+            alert(bike.startEngine() + "\n" + bike.kickStart())
+        }
+
+        function testTruck() {
+            let truck = new Truck(document.form.make.value, document.form.model.value);
+            console.log(truck);
+            alert(truck.startEngine() + "\n" + truck.loadCargo())
+        }
+
+    </script>
+</body>
+
+</html>

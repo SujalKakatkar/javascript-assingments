@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <h3>Savings Account</h3>
+        <label for="sNumber">Account Number</label>
+        <input type="text" name="sNumber">
+        <br><br>
+        <label for="sBalance">Balance</label>
+        <input type="text" name="sBalance">
+        <br><br>
+        <label for="interestRate">Interest Rate</label>
+        <input type="text" name="interestRate">
+
+        <h3>Current Account</h3>
+        <label for="cNumber">Account Number</label>
+        <input type="text" name="cNumber">
+        <br><br>
+        <label for="cBalance">Balance</label>
+        <input type="text" name="cBalance">
+        <br><br>
+        <label for="overdraftLimit">Overdraft Limit</label>
+        <input type="text" name="overdraftLimit">
+        <br><br>
+        <button type="button" onclick="showAccounts()">show details</button>
+    </form>
+    <script>
+
+        class Account {
+            constructor(accountNumber, balance) {
+                this.accountNumber = accountNumber;
+                this.balance = balance;
+            }
+            getDetails() {
+                return "Account Number: " + this.accountNumber + ", Balance: " + this.balance;
+            }
+        }
+
+        class SavingsAccount extends Account {
+            constructor(accountNumber, balance, interestRate) {
+                super(accountNumber, balance);
+                this.interestRate = interestRate;
+            }
+            getDetails() {
+                return "Savings Account -> " + super.getDetails() + ", Interest Rate: " + this.interestRate + "%";
+            }
+        }
+
+        class CurrentAccount extends Account {
+            constructor(accountNumber, balance, overdraftLimit) {
+                super(accountNumber, balance);
+                this.overdraftLimit = overdraftLimit;
+            }
+            getDetails() {
+                return "Current Account -> " + super.getDetails() + ", Overdraft Limit: " + this.overdraftLimit;
+            }
+        }
+
+        function showAccounts() {
+            let savings = new SavingsAccount(document.form.sNumber.value, parseFloat(document.form.sBalance.value), parseFloat(document.form.interestRate.value));
+            let current = new CurrentAccount(document.form.cNumber.value, parseFloat(document.form.cBalance.value), parseFloat(document.form.overdraftLimit.value));
+            console.log(savings, current);
+            alert(savings.getDetails() + "\n" + current.getDetails())
+        }
+
+    </script>
+</body>
+
+</html>

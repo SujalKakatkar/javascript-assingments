@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <h3>Order 1</h3>
+        <label for="orderId1">Order Id</label>
+        <input type="text" name="orderId1">
+        <br><br>
+        <label for="customerId1">Customer Id</label>
+        <input type="text" name="customerId1">
+        <br><br>
+        <label for="name1">Customer Name</label>
+        <input type="text" name="name1">
+        <br><br>
+        <label for="email1">Email</label>
+        <input type="text" name="email1">
+        <br><br>
+        <label for="contact1">Contact No</label>
+        <input type="text" name="contact1">
+
+        <h3>Order 2</h3>
+        <label for="orderId2">Order Id</label>
+        <input type="text" name="orderId2">
+        <br><br>
+        <label for="customerId2">Customer Id</label>
+        <input type="text" name="customerId2">
+        <br><br>
+        <label for="name2">Customer Name</label>
+        <input type="text" name="name2">
+        <br><br>
+        <label for="email2">Email</label>
+        <input type="text" name="email2">
+        <br><br>
+        <label for="contact2">Contact No</label>
+        <input type="text" name="contact2">
+
+        <h3>Order 3</h3>
+        <label for="orderId3">Order Id</label>
+        <input type="text" name="orderId3">
+        <br><br>
+        <label for="customerId3">Customer Id</label>
+        <input type="text" name="customerId3">
+        <br><br>
+        <label for="name3">Customer Name</label>
+        <input type="text" name="name3">
+        <br><br>
+        <label for="email3">Email</label>
+        <input type="text" name="email3">
+        <br><br>
+        <label for="contact3">Contact No</label>
+        <input type="text" name="contact3">
+        <br><br>
+        <button type="button" onclick="showOrders()">display</button>
+    </form>
+    <script>
+
+        class Customer {
+            constructor(customerId, customerName, email, contactNo) {
+                this.customerId = customerId;
+                this.customerName = customerName;
+                this.email = email;
+                this.contactNo = contactNo;
+            }
+            getInfo() {
+                return "Customer Id: " + this.customerId + ", Name: " + this.customerName + ", Email: " + this.email + ", Contact No: " + this.contactNo;
+            }
+        }
+
+        class Order extends Customer {
+            constructor(orderId, customerId, customerName, email, contactNo) {
+                super(customerId, customerName, email, contactNo);
+                this.orderId = orderId;
+            }
+            getInfo() {
+                return "Order Id: " + this.orderId + ", " + super.getInfo();
+            }
+        }
+
+        function showOrders() {
+            let o1 = new Order(document.form.orderId1.value, document.form.customerId1.value, document.form.name1.value, document.form.email1.value, document.form.contact1.value);
+            let o2 = new Order(document.form.orderId2.value, document.form.customerId2.value, document.form.name2.value, document.form.email2.value, document.form.contact2.value);
+            let o3 = new Order(document.form.orderId3.value, document.form.customerId3.value, document.form.name3.value, document.form.email3.value, document.form.contact3.value);
+            console.log(o1, o2, o3);
+            alert(o1.getInfo() + "\n\n" + o2.getInfo() + "\n\n" + o3.getInfo())
+        }
+
+    </script>
+</body>
+
+</html>

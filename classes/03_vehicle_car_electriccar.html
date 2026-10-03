@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="form">
+        <label for="type">Enter the Vehicle Type</label>
+        <input type="text" name="type">
+        <br><br>
+        <label for="fuelType">Enter the Fuel Type</label>
+        <input type="text" name="fuelType">
+        <br><br>
+        <label for="batteryLevel">Enter the Battery Level</label>
+        <input type="text" name="batteryLevel">
+        <button type="button" onclick="startCar()">start</button>
+    </form>
+    <script>
+
+        class Vehicle {
+            constructor(type) {
+                this.type = type;
+            }
+            start() {
+                return "Vehicle is starting";
+            }
+        }
+
+        class Car extends Vehicle {
+            constructor(type, fuelType) {
+                super(type);
+                this.fuelType = fuelType;
+            }
+            start() {
+                return "Car starts using " + this.fuelType;
+            }
+        }
+
+        class ElectricCar extends Car {
+            constructor(type, fuelType, batteryLevel) {
+                super(type, fuelType);
+                this.batteryLevel = batteryLevel;
+            }
+            start() {
+                return "Electric car starts with battery at " + this.batteryLevel + "%";
+            }
+        }
+
+        function startCar() {
+            let type = document.form.type.value;
+            let fuelType = document.form.fuelType.value;
+            let batteryLevel = parseInt(document.form.batteryLevel.value);
+            let eCar = new ElectricCar(type, fuelType, batteryLevel);
+            console.log(eCar);
+            alert(eCar.start())
+        }
+
+    </script>
+</body>
+
+</html>
